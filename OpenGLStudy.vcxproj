@@ -145,22 +145,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include=".\glad.c" />
-    <ClCompile Include="EBO.cpp" />
-    <ClCompile Include="Main.cpp" />
-    <ClCompile Include="shaderClass.cpp" />
-    <ClCompile Include="VAO.cpp" />
-    <ClCompile Include="VBO.cpp" />
+    <ClCompile Include="Libraries\src\glad.c" />
+    <ClCompile Include="src\modules\EBO\EBO.cpp" />
+    <ClCompile Include="src\Main.cpp" />
+    <ClCompile Include="src\modules\ShaderClass\ShaderClass.cpp" />
+    <ClCompile Include="src\modules\VAO\VAO.cpp" />
+    <ClCompile Include="src\modules\VBO\VBO.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="default.frag" />
-    <None Include="default.vert" />
+    <None Include="src\shaders\default.frag" />
+    <None Include="src\shaders\default.vert" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="EBO.h" />
-    <ClInclude Include="shaderClass.h" />
-    <ClInclude Include="VAO.h" />
-    <ClInclude Include="VBO.h" />
+    <ClInclude Include="src\modules\EBO\EBO.h" />
+    <ClInclude Include="src\modules\ShaderClass\ShaderClass.h" />
+    <ClInclude Include="src\modules\VAO\VAO.h" />
+    <ClInclude Include="src\modules\VBO\VBO.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

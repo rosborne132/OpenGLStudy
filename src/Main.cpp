@@ -2,10 +2,10 @@
 #include<glad/glad.h>
 #include<GLFW/glfw3.h>
 
-#include"shaderClass.h"
-#include"VAO.h"
-#include"VBO.h"
-#include"EBO.h"
+#include"modules/ShaderClass/ShaderClass.h"
+#include"modules/VAO/VAO.h"
+#include"modules/VBO/VBO.h"
+#include"modules/EBO/EBO.h"
 
 // Vertices coordinates
 GLfloat vertices[] =
@@ -64,7 +64,7 @@ int main()
 	glViewport(0, 0, window_width, window_height);
 
 	// Generates Shader object using shaders defualt.vert and default.frag.
-	Shader shaderProgram("default.vert", "default.frag");
+	Shader shaderProgram("src/shaders/default.vert", "src/shaders/default.frag");
 
 	// Generates Vertex Array Object and binds it.
 	VAO VAO1;
@@ -101,7 +101,6 @@ int main()
 		// Handle all GLFW events.
 		glfwPollEvents();
 	}
-
 
 	// Tear down all object and windows before terminating the program.
 	VAO1.Delete();
