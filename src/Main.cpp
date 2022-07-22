@@ -11,6 +11,7 @@
 #include"modules/VBO/VBO.h"
 #include"modules/EBO/EBO.h"
 #include"modules/Texture/Texture.h"
+#include"modules/Camera/Camera.h"
 
 // Initialize variables.
 const unsigned int window_height = 800;
@@ -86,9 +87,6 @@ int main()
 	VBO1.Unbind();
 	EBO1.Unbind();
 
-	// Gets ID of uniform called "scale".
-	GLuint uniID = glGetUniformLocation(shaderProgram.ID, "scale");
-
 	// Texture
 	Texture brickTex("src/textures/brick.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
 	brickTex.texUnit(shaderProgram, "tex0", 0);
@@ -99,6 +97,9 @@ int main()
 
 	// Enables the Depth Buffer.
 	glEnable(GL_DEPTH_TEST);
+
+	// Creates camera object
+	Camera camera(window_width, window_width, glm::vec3(0.0f, 0.0f, 2.0f));
 
 	// Main while loop.
 	while (!glfwWindowShouldClose(window))
@@ -111,34 +112,8 @@ int main()
 
 		shaderProgram.Activate();
 
-		// Simple timer to rotate pyramid.
-		double crntTime = glfwGetTime();
-		if (crntTime - prevTime >= 1 / 60)
-		{
-			rotation += 0.05f;
-			prevTime = crntTime;
-		}
-
-		// Initializes matrices.
-		glm::mat4 model = glm::mat4(1.0f);
-		glm::mat4 view = glm::mat4(1.0f);
-		glm::mat4 proj = glm::mat4(1.0f);
-
-		// Assigns different transformations to each matrix.
-		model = glm::rotate(model, glm::radians(rotation), glm::vec3(0.0f, 1.0f, 0.0f));
-		view = glm::translate(view, glm::vec3(0.0f, -0.5f, -2.0f));
-		proj = glm::perspective(glm::radians(45.0f), (float)window_width / window_height, 0.1f, 100.0f);
-
-		// Outputs the matrices into the Vertex Shader.
-		int modelLoc = glGetUniformLocation(shaderProgram.ID, "model");
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		int viewLoc = glGetUniformLocation(shaderProgram.ID, "view");
-		glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
-		int projLoc = glGetUniformLocation(shaderProgram.ID, "proj");
-		glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(proj));
-
-		// Assigns a value to the uniform.This must always be done after activating the Shader Program.
-		glUniform1f(uniID, 0.5f);
+		camera.Inputs(window);
+		camera.Matrix(45.0f, 0.1f, 100.0f, shaderProgram, "cameraMatrix");
 
 		brickTex.Bind();
 		VAO1.Bind();

@@ -148,6 +148,7 @@
     <ClCompile Include="Libraries\include\glm\detail\glm.cpp" />
     <ClCompile Include="Libraries\src\glad.c" />
     <ClCompile Include="Libraries\src\stb.cpp" />
+    <ClCompile Include="src\modules\Camera\Camera.cpp" />
     <ClCompile Include="src\modules\EBO\EBO.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\modules\ShaderClass\ShaderClass.cpp" />
@@ -578,6 +579,7 @@
     <ClInclude Include="Libraries\include\glm\vec3.hpp" />
     <ClInclude Include="Libraries\include\glm\vec4.hpp" />
     <ClInclude Include="Libraries\include\glm\vector_relational.hpp" />
+    <ClInclude Include="src\modules\Camera\Camera.h" />
     <ClInclude Include="src\modules\EBO\EBO.h" />
     <ClInclude Include="src\modules\ShaderClass\ShaderClass.h" />
     <ClInclude Include="src\modules\Texture\Texture.h" />
