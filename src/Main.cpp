@@ -19,10 +19,9 @@ const unsigned int window_width = 800;
 const unsigned int glfw_major_version = 3;
 const unsigned int glfw_minor_version = 3;
 
-
 // Vertices coordinates.
 GLfloat vertices[] =
-{ //     COORDINATES     /        COLORS      /   TexCoord  //
+{ // COORDINATES            COLORS					TexCoord
 	-0.5f, 0.0f,  0.5f,     0.83f, 0.70f, 0.44f,	0.0f, 0.0f,
 	-0.5f, 0.0f, -0.5f,     0.83f, 0.70f, 0.44f,	5.0f, 0.0f,
 	 0.5f, 0.0f, -0.5f,     0.83f, 0.70f, 0.44f,	0.0f, 0.0f,
@@ -49,8 +48,7 @@ int main()
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, glfw_major_version);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, glfw_minor_version);
 	
-	// Tell GLFW we are using the CORE profile which means we 
-	// will be using only the modern functions.
+	// Tell GLFW we are using the CORE profile which means we will be using only the modern functions.
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 	GLFWwindow* window = glfwCreateWindow(window_width, window_height, "OpenGLStudy", NULL, NULL);
@@ -87,18 +85,14 @@ int main()
 	VBO1.Unbind();
 	EBO1.Unbind();
 
-	// Texture
+	// Texture.
 	Texture brickTex("src/textures/brick.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
 	brickTex.texUnit(shaderProgram, "tex0", 0);
-
-	// Variables to rotate the pyramid.
-	float rotation = 0.0f;
-	double prevTime = glfwGetTime();
 
 	// Enables the Depth Buffer.
 	glEnable(GL_DEPTH_TEST);
 
-	// Creates camera object
+	// Creates camera object.
 	Camera camera(window_width, window_width, glm::vec3(0.0f, 0.0f, 2.0f));
 
 	// Main while loop.

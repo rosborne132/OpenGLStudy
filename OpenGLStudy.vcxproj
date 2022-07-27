@@ -149,12 +149,9 @@
     <ClCompile Include="Libraries\src\glad.c" />
     <ClCompile Include="Libraries\src\stb.cpp" />
     <ClCompile Include="src\modules\Camera\Camera.cpp" />
-    <ClCompile Include="src\modules\EBO\EBO.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\modules\ShaderClass\ShaderClass.cpp" />
     <ClCompile Include="src\modules\Texture\Texture.cpp" />
-    <ClCompile Include="src\modules\VAO\VAO.cpp" />
-    <ClCompile Include="src\modules\VBO\VBO.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Libraries\include\glm\detail\func_common.inl" />

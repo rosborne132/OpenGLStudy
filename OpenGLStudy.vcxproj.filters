@@ -27,15 +27,6 @@
     <ClCompile Include="src\modules\ShaderClass\ShaderClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\modules\VBO\VBO.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\modules\EBO\EBO.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\modules\VAO\VAO.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Libraries\src\stb.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
