@@ -292,6 +292,8 @@
     <None Include="Libraries\include\glm\gtx\wrap.inl" />
     <None Include="src\shaders\default.frag" />
     <None Include="src\shaders\default.vert" />
+    <None Include="src\shaders\light.frag" />
+    <None Include="src\shaders\light.vert" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Libraries\include\glm\common.hpp" />
